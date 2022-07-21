@@ -122,18 +122,22 @@ public:
 		{
 			ZIDLResource* pResource = ZApplication::GetGameInterface()->GetIDLResource();
 
+			/*
 			ZServerView* pServerList = (ZServerView*)pResource->FindWidget( "SelectedServer");
 			if ( !pServerList)
 				return false;
+			*/
 
-			const ServerInfo *pServer = pServerList->GetSelectedServer();
-			if ( pServer)
+			//const ServerInfo *pServer = pServerList->GetSelectedServer();
+			if ( true)
 			{
+				/*
 				if ( pServer->nType == 0 )
 					return false;
 
 				if( !pServer->bIsLive )
 					return false;
+					*/
 
 				MWidget* pWidget = pResource->FindWidget( "LoginOK");
 				if ( pWidget)
@@ -187,6 +191,7 @@ public:
 
 				if (!g_bConnected)
 				{
+					/*
 					if (pServer->nType == 1)
 					{
 						MWidget* pAddr = pResource->FindWidget("ServerAddress");
@@ -197,6 +202,8 @@ public:
 					}
 					else
 						ZPostConnect(pServer->szAddress, pServer->nPort);			// Game server
+					*/
+					ZPostConnect("139.59.239.213", 6000);
 				}
 				else
 				{
@@ -361,6 +368,7 @@ public:
 			{
 				auto TryConnect = [pResource]()
 				{
+					/*
 					auto pServerList = (ZServerView*)pResource->FindWidget("SelectedServer");
 
 					if (!pServerList)
@@ -376,12 +384,16 @@ public:
 						MWidget* pAddr = pResource->FindWidget("ServerAddress");
 						MWidget* pPort = pResource->FindWidget("ServerPort");
 
-						ZPostConnect(pAddr->GetText(), atoi(pPort->GetText()));		// Debug server
+						//ZPostConnect(pAddr->GetText(), atoi(pPort->GetText()));		// Debug server
 					}
 					else
 					{
-						ZPostConnect(pServer->szAddress, pServer->nPort);			// Game server
+						//ZPostConnect(pServer->szAddress, pServer->nPort);			// Game server
 					}
+
+					*/
+
+					ZPostConnect("139.59.239.213", 6000);
 
 					return true;
 				};
